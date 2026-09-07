@@ -1,0 +1,13 @@
+KEYCORE | STICKERS HD (ENHANCED — REAL-ESRGAN ANIME 6B)
+
+146 stickers individuais com restauração super-resolution via IA.
+
+- Modelo: Real-ESRGAN Anime 6B (x4plus-anime)
+- Melhorias aplicadas:
+  * Remoção completa de borrão de interpolação e mosquito noise em textos
+  * Contornos de faca de corte (cutline) retificados e nítidos
+  * Cores sólidas e degradês restaurados sem sangria
+  * Fundo transparente RGBA preservado
+  * Resolução ultra-alta: mais de 8000 pixels (ideal para impressão gráfica 300+ DPI em qualquer escala)
+
+Organização idêntica à pasta original: uma pasta por coleção (01_neon a 10_devolvemos_tempo).
