@@ -1,0 +1,15 @@
+KEYCORE | STICKERS HD
+
+146 stickers individuais, extraídos das 10 cartelas desta conversa.
+
+Formato: PNG RGBA, com fundo externo transparente.
+Tamanho: pelo menos 2048 pixels no maior lado. Proporções preservadas.
+As áreas brancas que fazem parte dos desenhos e contornos foram mantidas.
+Os arquivos foram ampliados a partir das imagens raster originais, com ajuste de nitidez e acabamento dos recortes. Não são vetores e a ampliação não recupera detalhes inexistentes nos originais.
+Textos, marcas e ilustrações foram preservados como nas artes de origem, sem redesenho da logomarca.
+
+Organização: uma pasta por coleção. Cada imagem possui código KCxx-yy.
+A coleção 10 contém os 20 modelos relacionados à cultura "Devolvemos tempo".
+As imagens de prévia usam um fundo de contraste apenas para visualização. Os PNGs dos stickers são transparentes.
+
+Pasta de destino no Canva: https://www.canva.com/folder/FAHUiS0ZVzo
