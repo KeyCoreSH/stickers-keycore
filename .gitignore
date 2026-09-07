@@ -1,0 +1,17 @@
+# Python & Virtual Env
+.venv/
+__pycache__/
+*.pyc
+
+# Real-ESRGAN binary (downloadable via setup script)
+bin/realesrgan.zip
+bin/realesrgan-ncnn-vulkan
+
+# Temp batches
+.temp_batch*
+test_batch*
+test_real_stickers/
+
+# OS metadata
+.DS_Store
+Thumbs.db
