@@ -279,6 +279,12 @@
   <script>
     // Carregar dados dos stickers
     const stickersData = window.KEYCORE_STICKERS_DATA?.stickers || [];
+    const RAW_BASE = 'https://raw.githubusercontent.com/KeyCoreSH/stickers-keycore/main/';
+    function getAssetUrl(path) {
+      if (!path) return '';
+      if (path.startsWith('http://') || path.startsWith('https://')) return path;
+      return RAW_BASE + path;
+    }
     let currentFilter = 'all';
     let searchQuery = '';
     let currentModalIndex = 0;
@@ -349,7 +355,7 @@
             <button onclick="openModal(${globalIndex})" class="flex-1 py-1.5 px-2 bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 rounded-lg text-[11px] font-medium text-slate-200 transition flex items-center justify-center gap-1.5 shadow-sm">
               <i class="fa-solid fa-sliders text-[10px]"></i> Comparar
             </button>
-            <a href="${item.after}" download="${item.id}_enhanced_8k.png" class="p-1.5 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-300 transition text-[11px]" title="Baixar 8K Transparente">
+            <a href="${getAssetUrl(item.after)}" download="${item.id}_enhanced_8k.png" class="p-1.5 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-300 transition text-[11px]" title="Baixar 8K Transparente">
               <i class="fa-solid fa-download"></i>
             </a>
           </div>
@@ -398,11 +404,11 @@
       document.getElementById('modal-res-orig').innerText = `${item.origW} × ${item.origH} px`;
       document.getElementById('modal-res-enh').innerText = `${item.enhW} × ${item.enhH} px (4x)`;
 
-      document.getElementById('modal-img-after').src = item.after;
-      document.getElementById('modal-img-before').src = item.before;
+      document.getElementById('modal-img-after').src = getAssetUrl(item.after);
+      document.getElementById('modal-img-before').src = getAssetUrl(item.before);
 
       const downloadBtn = document.getElementById('modal-download-btn');
-      downloadBtn.href = item.after;
+      downloadBtn.href = getAssetUrl(item.after);
       downloadBtn.download = `${item.id}_enhanced_8k.png`;
 
       // Reset slider to 50%
