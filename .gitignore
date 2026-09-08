@@ -3,9 +3,8 @@
 __pycache__/
 *.pyc
 
-# Real-ESRGAN binary (downloadable via setup script)
-bin/realesrgan.zip
-bin/realesrgan-ncnn-vulkan
+# Binaries & external weights
+bin/
 
 # Temp batches
 .temp_batch*

@@ -1,456 +1,513 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KeyCore AI — POC Super-Resolution para Adesivos e Textos</title>
+  <title>KeyCore Stickers HD — 146 Adesivos em Ultra-Resolução 8K</title>
+  <meta name="description" content="Catálogo oficial dos 146 adesivos da KeyCore restaurados com Real-ESRGAN Anime 6B para impressão em 300+ DPI.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="stickers_data.js"></script>
   <style>
-    .split-container {
-      position: relative;
-      overflow: hidden;
-      user-select: none;
+    .pattern-checkered {
+      background-color: #0f172a;
+      background-image: 
+        linear-gradient(45deg, #1e293b 25%, transparent 25%), 
+        linear-gradient(-45deg, #1e293b 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #1e293b 75%), 
+        linear-gradient(-45deg, transparent 75%, #1e293b 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     }
-    .split-image-before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
+    .pattern-checkered-light {
+      background-color: #f1f5f9;
+      background-image: 
+        linear-gradient(45deg, #e2e8f0 25%, transparent 25%), 
+        linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #e2e8f0 75%), 
+        linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     }
-    .split-slider-line {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: #38bdf8;
-      cursor: ew-resize;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
-    }
-    .split-slider-handle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40px;
-      height: 40px;
-      background: #0f172a;
-      border: 2px solid #38bdf8;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #38bdf8;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
-    }
+    /* Hide scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans pb-16">
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col antialiased selection:bg-cyan-500 selection:text-slate-950">
 
   <!-- Header -->
-  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
       <div class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center font-bold text-slate-950 text-xl shadow-lg shadow-cyan-500/20">
           K
         </div>
         <div>
-          <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-            KeyCore AI <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">POC Super-Resolution</span>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            KeyCore Stickers HD
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-semibold hidden sm:inline-block">
+              Super-Resolution 8K
+            </span>
           </h1>
-          <p class="text-xs text-slate-400">Benchmark de Restauração de Borrão em Adesivos, Logos e Textos</p>
+          <p class="text-xs text-slate-400">146 artes oficiais em ultra-resolução com fundo transparente</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2 text-xs">
-        <span class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center gap-2">
-          <i class="fa-solid fa-microchip text-cyan-400"></i> Apple M3 Pro GPU (Metal/Vulkan)
-        </span>
-        <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold flex items-center gap-1.5">
-          <i class="fa-solid fa-circle-check"></i> 4x Upscale Ativo
-        </span>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://github.com/KeyCoreSH/stickers-keycore" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-2 shadow-sm">
+          <i class="fa-brands fa-github text-sm"></i>
+          <span class="hidden sm:inline">Repositório GitHub</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-6 pt-8 space-y-10">
-
-    <!-- Hero / Resumo Executivo -->
-    <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-      <div class="max-w-3xl space-y-3 relative z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold">
-          <i class="fa-solid fa-bolt"></i> Veredito Técnico da POC
+  <!-- Hero & Status Banner -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-2 w-full">
+    <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+      <div class="max-w-4xl space-y-3 relative z-10">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+            <i class="fa-solid fa-check-circle"></i> 146 Stickers Prontos (300+ DPI)
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Real-ESRGAN Anime 6B (4x)
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold">
+            <i class="fa-solid fa-layer-group"></i> RGBA Transparente
+          </span>
         </div>
-        <h2 class="text-2xl font-bold text-white">
-          O modelo campeão para Adesivos com Texto é o <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Real-ESRGAN Anime 6B</span>.
+        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          Qualidade gráfica máxima para adesivos, vinil e corte plotter.
         </h2>
-        <p class="text-sm text-slate-300 leading-relaxed">
-          Modelos de difusão (SUPIR, StableSR) alucinam letras falsas e distorcem fontes. Modelos fotográficos tradicionais (BSRGAN) mantêm névoa em volta de traços de alto contraste. O <strong>Real-ESRGAN Anime 6B</strong> possui prior indutivo para contornos limpos, removendo totalmente o "ringing" (ruído de mosquito) e restaurando traços vetoriais com geometria exata a 300 DPI.
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+          Os adesivos foram ampliados de matrizes raster e aprimorados via rede neural para eliminar o borrão em textos e logos. Selecione qualquer sticker abaixo para <strong>arrastar o divisor interativo Antes vs Depois</strong> e baixar o PNG transparente em tamanho total.
         </p>
       </div>
       <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-cyan-500/10 to-transparent pointer-events-none"></div>
     </div>
+  </section>
 
-    <!-- Seção 1: Comparador Interativo Split-Screen -->
-    <section class="space-y-4">
-      <div class="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h3 class="text-lg font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-sliders text-cyan-400"></i> Split-Screen Interativo: Antes (Borrão) vs Depois (IA)
+  <!-- Barra de Filtros e Busca -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-2 w-full space-y-3 sticky top-[61px] bg-slate-950/95 backdrop-blur z-30 py-3">
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+      <!-- Busca rápida -->
+      <div class="relative flex-1 max-w-md">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+        <input 
+          id="search-input"
+          type="text" 
+          placeholder="Buscar por título, palavra-chave ou código (ex: KC01, deploy, café)..."
+          class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition"
+          oninput="handleSearch()"
+        >
+        <button id="clear-search" onclick="clearSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs hidden">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Contador de Resultados -->
+      <div class="text-xs text-slate-400 flex items-center justify-between sm:justify-end gap-2">
+        <span>Mostrando: <strong id="result-count" class="text-cyan-400">146</strong> de 146 adesivos</span>
+        <button onclick="downloadAllInfo()" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 text-[11px] transition flex items-center gap-1.5">
+          <i class="fa-solid fa-download text-cyan-400"></i> Baixar Pacote Completo (GitHub)
+        </button>
+      </div>
+    </div>
+
+    <!-- Pílulas de Coleção -->
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
+      <button onclick="filterCollection('all')" id="tab-all" class="category-pill active px-3 py-1.5 rounded-xl font-semibold bg-cyan-500 text-slate-950 transition whitespace-nowrap">
+        Todas as Coleções (146)
+      </button>
+      <button onclick="filterCollection('01_neon')" id="tab-01_neon" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        ⚡ 01. Neon (14)
+      </button>
+      <button onclick="filterCollection('02_inovacao')" id="tab-02_inovacao" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        💡 02. Inovação (15)
+      </button>
+      <button onclick="filterCollection('03_tech_people')" id="tab-03_tech_people" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        👥 03. Tech & People (14)
+      </button>
+      <button onclick="filterCollection('04_construir_juntos')" id="tab-04_construir_juntos" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        🤝 04. Construir Juntos (15)
+      </button>
+      <button onclick="filterCollection('05_ideias_que_movem')" id="tab-05_ideias_que_movem" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        🚀 05. Ideias que Movem (12)
+      </button>
+      <button onclick="filterCollection('06_lancar_e_evoluir')" id="tab-06_lancar_e_evoluir" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        📈 06. Lançar & Evoluir (13)
+      </button>
+      <button onclick="filterCollection('07_keep_building')" id="tab-07_keep_building" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        🔨 07. Keep Building (16)
+      </button>
+      <button onclick="filterCollection('08_codigo_em_acao')" id="tab-08_codigo_em_acao" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        💻 08. Código em Ação (14)
+      </button>
+      <button onclick="filterCollection('09_build_better')" id="tab-09_build_better" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        🧊 09. Build Better (13)
+      </button>
+      <button onclick="filterCollection('10_devolvemos_tempo')" id="tab-10_devolvemos_tempo" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
+        ⏱️ 10. Devolvemos Tempo (20)
+      </button>
+    </div>
+  </section>
+
+  <!-- Grid de Adesivos -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
+    <div id="stickers-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5 sm:gap-4">
+      <!-- Inserido dinamicamente via JS -->
+    </div>
+
+    <!-- Empty State se busca não encontrar -->
+    <div id="empty-state" class="hidden text-center py-16 space-y-3">
+      <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mx-auto text-slate-500">
+        <i class="fa-solid fa-ghost text-xl"></i>
+      </div>
+      <h3 class="text-sm font-semibold text-white">Nenhum adesivo encontrado</h3>
+      <p class="text-xs text-slate-400">Tente buscar por outro termo ou selecione "Todas as Coleções".</p>
+    </div>
+  </main>
+
+  <!-- Modal Interativo do Comparador Antes vs Depois -->
+  <div id="comparator-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 transition-opacity opacity-0 pointer-events-none">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[95vh] flex flex-col shadow-2xl overflow-hidden relative" onclick="event.stopPropagation()">
+
+      <!-- Modal Header -->
+      <div class="px-5 py-3.5 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+        <div class="flex items-center space-x-2.5">
+          <span id="modal-badge-id" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+            KC01-01
+          </span>
+          <span id="modal-collection-tag" class="text-[11px] text-slate-400 hidden sm:inline">
+            Neon & Glow
+          </span>
+          <h3 id="modal-title" class="text-sm font-bold text-white truncate max-w-xs sm:max-w-md">
+            KeyCore Tech Hub
           </h3>
-          <p class="text-xs text-slate-400">Arraste a linha central para inspecionar o contraste, as letras e a eliminação do borrão.</p>
         </div>
 
-        <!-- Seletor de Modelo para o Slider -->
-        <div class="flex items-center gap-1.5 bg-slate-900 p-1.5 rounded-xl border border-slate-800 text-xs">
-          <span class="text-slate-400 px-2 font-medium">Comparar com:</span>
-          <button onclick="selectModel('anime6b')" id="btn-anime6b" class="px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition">
-            Anime 6B (Top)
-          </button>
-          <button onclick="selectModel('general')" id="btn-general" class="px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition">
-            General 4x
-          </button>
-          <button onclick="selectModel('animev3')" id="btn-animev3" class="px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition">
-            AnimeVideo V3
-          </button>
-          <button onclick="selectModel('lanczos')" id="btn-lanczos" class="px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition">
-            Lanczos (Sem IA)
+        <div class="flex items-center space-x-2">
+          <!-- Background Mode Switcher -->
+          <div class="flex items-center bg-slate-950 border border-slate-800 rounded-lg p-0.5 text-xs">
+            <button onclick="setBgMode('checkered')" id="bg-checkered" class="px-2 py-1 rounded bg-slate-850 text-white transition" title="Fundo Transparente Xadrez">
+              <i class="fa-solid fa-table-cells text-[11px]"></i>
+            </button>
+            <button onclick="setBgMode('dark')" id="bg-dark" class="px-2 py-1 rounded text-slate-400 hover:text-white transition" title="Fundo Escuro">
+              <i class="fa-solid fa-moon text-[11px]"></i>
+            </button>
+            <button onclick="setBgMode('white')" id="bg-white" class="px-2 py-1 rounded text-slate-400 hover:text-white transition" title="Fundo Branco (Inspecionar Faca de Corte)">
+              <i class="fa-solid fa-sun text-[11px]"></i>
+            </button>
+          </div>
+
+          <button onclick="closeModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark text-sm"></i>
           </button>
         </div>
       </div>
 
-      <!-- Container do Slider Interativo -->
-      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-2xl flex flex-col items-center">
-        <div id="split-box" class="split-container w-full max-w-[720px] aspect-square rounded-xl border border-slate-700 bg-slate-950 relative cursor-ew-resize">
-          <!-- Imagem After (IA) -->
-          <img id="img-after" src="outputs/output_realesrgan_anime6b.png" alt="Depois - IA" class="w-full h-full object-cover">
-          <div class="absolute bottom-3 right-3 px-3 py-1 bg-emerald-500/90 text-slate-950 text-xs font-bold rounded-lg backdrop-blur shadow">
-            DEPOIS: <span id="label-after-name">Real-ESRGAN Anime 6B (4x)</span>
+      <!-- Modal Body (Comparador Split-Slider) -->
+      <div class="p-4 sm:p-6 overflow-y-auto flex-1 flex flex-col items-center justify-center space-y-4">
+
+        <!-- Split Slider Container -->
+        <div id="modal-split-box" class="w-full max-w-[580px] aspect-square rounded-2xl border border-slate-700/80 pattern-checkered relative cursor-ew-resize shadow-2xl overflow-hidden select-none touch-none">
+          
+          <!-- Imagem DEPOIS (8K Real-ESRGAN Anime 6B) -->
+          <img id="modal-img-after" src="" alt="Depois - 8K" class="absolute inset-0 w-full h-full object-contain p-6 pointer-events-none select-none">
+          <div class="absolute top-3.5 right-3.5 px-3 py-1 bg-emerald-500/90 text-slate-950 text-[11px] font-bold rounded-lg backdrop-blur shadow flex items-center gap-1.5 z-10 select-none pointer-events-none">
+            <i class="fa-solid fa-sparkles"></i> DEPOIS: 8K Restaurado
           </div>
 
-          <!-- Imagem Before (Borrão / Degradação) -->
-          <div id="split-before" class="split-image-before" style="width: 50%;">
-            <img src="outputs/output_bicubic_baseline.png" alt="Antes - Borrão" class="w-full h-full object-cover max-w-none" style="width: 720px; height: 720px;">
-            <div class="absolute bottom-3 left-3 px-3 py-1 bg-rose-500/90 text-white text-xs font-bold rounded-lg backdrop-blur shadow">
-              ANTES: Borrão + JPEG 45% (Bicúbico)
-            </div>
+          <!-- Imagem ANTES (Raster Original com Borrão) com Clip-Path -->
+          <img id="modal-img-before" src="" alt="Antes - Borrão" class="absolute inset-0 w-full h-full object-contain p-6 pointer-events-none select-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 bg-rose-500/90 text-white text-[11px] font-bold rounded-lg backdrop-blur shadow flex items-center gap-1.5 z-10 select-none pointer-events-none">
+            <i class="fa-solid fa-triangle-exclamation"></i> ANTES: Original
           </div>
 
-          <!-- Linha divisória com alça -->
-          <div id="split-line" class="split-slider-line" style="left: 50%;">
-            <div class="split-slider-handle">
+          <!-- Linha divisória e puxador -->
+          <div id="modal-split-line" class="absolute top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_12px_rgba(56,189,248,0.9)] cursor-ew-resize z-20 pointer-events-none" style="left: 50%;">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-slate-950/90 border-2 border-cyan-400 rounded-full flex items-center justify-center text-cyan-400 shadow-xl backdrop-blur">
               <i class="fa-solid fa-arrows-left-right text-xs"></i>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between w-full max-w-[720px] text-xs text-slate-400 mt-3 px-2">
-          <span>👈 Esquerda: Imagem Original com Borrão</span>
-          <span>Arraste para os lados</span>
-          <span>Direita: Imagem Restaurada pela IA 👉</span>
+        <!-- Instruções e Navegação -->
+        <div class="flex items-center justify-between w-full max-w-[580px] text-xs text-slate-400 px-1">
+          <button onclick="navigateModal(-1)" class="hover:text-white flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-chevron-left text-[10px]"></i> Anterior (←)
+          </button>
+          <span class="text-[11px] text-slate-500">👈 Arraste a barra para comparar 👉</span>
+          <button onclick="navigateModal(1)" class="hover:text-white flex items-center gap-1.5 transition">
+            Próximo (→) <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
         </div>
-      </div>
-    </section>
 
-    <!-- Seção: Teste com os 3 Adesivos Reais do Pack (KeyCore_146_stickers_PNG_HD_transparentes) -->
-    <section class="space-y-6">
-      <div class="border-b border-slate-800 pb-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-2">
-          <i class="fa-solid fa-folder-open"></i> Teste com Arquivos Reais da Pasta KeyCore_146_stickers_PNG_HD_transparentes/png
-        </div>
-        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-          Os 3 Adesivos Selecionados do Pack Oficial KeyCore
-        </h3>
-        <p class="text-xs text-slate-400">
-          Avaliamos os arquivos originais do pack (que sofreram ampliação raster) e passamos pelos modelos Real-ESRGAN General vs Real-ESRGAN Anime 6B.
-        </p>
-      </div>
-
-      <!-- Sticker 1: KC01-01 -->
-      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-          <div>
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-bold mr-2">KC01-01</span>
-            <span class="font-bold text-white text-sm">Coleção 01 Neon: Logo & Marca "KeyCore Tech Hub"</span>
+        <!-- Metadados de Resolução e Botão de Download -->
+        <div class="w-full max-w-[580px] bg-slate-950 rounded-xl p-3.5 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-xs space-y-1 text-center sm:text-left">
+            <div class="text-slate-400">
+              Resolução: <span id="modal-res-orig" class="text-rose-400 font-mono">2048 × 1500 px</span> 
+              <span class="text-slate-600 font-bold mx-1">➔</span> 
+              <span id="modal-res-enh" class="text-emerald-400 font-bold font-mono">8192 × 6000 px (4x)</span>
+            </div>
+            <p class="text-[11px] text-slate-500">Pronto para vinil e impressão em 300 a 600 DPI.</p>
           </div>
-          <span class="text-xs text-slate-400">Dimensão Original: 2320 x 796 px</span>
+
+          <a id="modal-download-btn" href="" download class="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-cyan-500 to-emerald-400 hover:from-cyan-400 hover:to-emerald-300 text-slate-950 text-xs font-bold rounded-lg shadow-lg shadow-cyan-500/20 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-download"></i> Baixar PNG 8K Transparente
+          </a>
         </div>
-        <p class="text-xs text-slate-300">
-          <strong>Diagnóstico:</strong> No original, a tipografia "Tech Hub" tem borrão nos limites pretos e vazamento arroxeado. O corte branco externo apresenta serrilhados da vetorização anterior. Com o <strong>Anime 6B</strong>, as letras ganham corte sólido, sem sangria de cor, e a linha da borda é retificada.
-        </p>
-        <img src="outputs/real_stickers/comparativo_KC01-01.png" alt="Comparativo KC01-01" class="w-full rounded-xl border border-slate-800 shadow-lg">
+
       </div>
+    </div>
+  </div>
 
-      <!-- Sticker 2: KC08-10 -->
-      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-          <div>
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-bold mr-2">KC08-10</span>
-            <span class="font-bold text-white text-sm">Coleção 08 Código em Ação: Checklist "Plan, Build, Test, Deploy"</span>
-          </div>
-          <span class="text-xs text-slate-400">Dimensão Original: 1690 x 2048 px</span>
-        </div>
-        <p class="text-xs text-slate-300">
-          <strong>Diagnóstico:</strong> Possui hierarquia tipográfica complexa com micro-texto (<code class="text-cyan-300">@keycoretechhub</code>). No original, o "@" e as letras finas perdem contraste. O <strong>Anime 6B</strong> restaura o contorno preto puro, o interior dos checkboxes azuis e a nitidez dos raios de velocidade do smartphone.
-        </p>
-        <img src="outputs/real_stickers/comparativo_KC08-10.png" alt="Comparativo KC08-10" class="w-full rounded-xl border border-slate-800 shadow-lg">
-      </div>
-
-      <!-- Sticker 3: KC10-02 -->
-      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-          <div>
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-bold mr-2">KC10-02</span>
-            <span class="font-bold text-white text-sm">Coleção 10 Devolvemos Tempo: Tipografia "DEVOLVEMOS TEMPO"</span>
-          </div>
-          <span class="text-xs text-slate-400">Dimensão Original: 2048 x 1351 px</span>
-        </div>
-        <p class="text-xs text-slate-300">
-          <strong>Diagnóstico:</strong> Tipografia pesada com preenchimento em degradê ciano e traço sublinhado neon (rosa/azul). O Anime 6B remove as manchas de interpolação nas hastes do "T", "E", "M", "P", "O", entregando saturação limpa sem granulação.
-        </p>
-        <img src="outputs/real_stickers/comparativo_KC10-02.png" alt="Comparativo KC10-02" class="w-full rounded-xl border border-slate-800 shadow-lg">
-      </div>
-    </section>
-
-    <!-- Seção 2: Zoom nas Zonas Críticas de Texto e Traço (Benchmark Geral) -->
-    <section class="space-y-6">
-      <div>
-        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-magnifying-glass text-cyan-400"></i> Zoom Microscópico nas Áreas Críticas (Crops 400%)
-        </h3>
-        <p class="text-xs text-slate-400">Comparação direta lado a lado nos pontos onde os textos costumam estragar.</p>
-      </div>
-
-      <!-- Card 1: Tipografia Principal -->
-      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-          <div>
-            <h4 class="font-bold text-white text-sm">1. Tipografia Principal ("KEYCORE TECH")</h4>
-            <p class="text-xs text-slate-400">Avaliação de bordas retas, contra-formas ('O', 'R') e remoção de ruído JPEG ao redor das letras.</p>
-          </div>
-          <span class="text-xs font-semibold px-2.5 py-1 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-md">
-            Fonte Grande & Médio Contraste
-          </span>
-        </div>
-        <img src="outputs/comparativo_texto_principal.png" alt="Comparativo Texto Principal" class="w-full rounded-xl border border-slate-800 shadow-md">
-      </div>
-
-      <!-- Card 2: Micro-Texto -->
-      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-          <div>
-            <h4 class="font-bold text-white text-sm">2. Micro-Texto ("PERFECT STICKER 300 DPI")</h4>
-            <p class="text-xs text-slate-400">O maior desafio gráfico: caracteres finos em tamanho de impressão minúsculo.</p>
-          </div>
-          <span class="text-xs font-semibold px-2.5 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-md">
-            Micro-tipografia Crítica
-          </span>
-        </div>
-        <img src="outputs/comparativo_micro_texto.png" alt="Comparativo Micro-Texto" class="w-full rounded-xl border border-slate-800 shadow-md">
-      </div>
-
-      <!-- Card 3: Ilustração & Linhas Vetoriais -->
-      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-          <div>
-            <h4 class="font-bold text-white text-sm">3. Mascote & Traços do Adesivo (Contornos e Cores Sólidas)</h4>
-            <p class="text-xs text-slate-400">Preservação de linhas limpas para plotter de recorte e ausência de manchas em degradês.</p>
-          </div>
-          <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-md">
-            Contorno de Corte & Gráfico
-          </span>
-        </div>
-        <img src="outputs/comparativo_mascote_tracos.png" alt="Comparativo Mascote" class="w-full rounded-xl border border-slate-800 shadow-md">
-      </div>
-    </section>
-
-    <!-- Seção 3: Matriz de Decisão e Benchmark Técnico -->
-    <section class="space-y-4">
-      <div>
-        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-table-list text-cyan-400"></i> Matriz Técnica Comparativa dos Modelos
-        </h3>
-        <p class="text-xs text-slate-400">Por que escolher cada modelo no pipeline de produção da KeyCore.</p>
-      </div>
-
-      <div class="overflow-x-auto bg-slate-900 border border-slate-800 rounded-2xl shadow-xl">
-        <table class="w-full text-left text-xs border-collapse">
-          <thead>
-            <tr class="border-b border-slate-800 bg-slate-950/60 text-slate-400 font-semibold">
-              <th class="p-4">Modelo</th>
-              <th class="p-4">Arquitetura</th>
-              <th class="p-4">Comportamento com Textos</th>
-              <th class="p-4">Tempo (M3 GPU)</th>
-              <th class="p-4">Peso</th>
-              <th class="p-4">Status no Pipeline</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-800/60">
-            <tr class="bg-emerald-500/5 hover:bg-emerald-500/10 transition">
-              <td class="p-4 font-bold text-white flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                Real-ESRGAN Anime 6B
-              </td>
-              <td class="p-4 text-slate-300">RRDBNet 6 Blocos (Indução 2D)</td>
-              <td class="p-4 text-emerald-300 font-medium">Bordas pretas puras, elimina 100% do mosquito noise, traço com aspecto vetorial.</td>
-              <td class="p-4 font-mono text-cyan-400">~0.4s</td>
-              <td class="p-4 font-mono text-slate-400">8.5 MB</td>
-              <td class="p-4"><span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold">1º Lugar (Padrão)</span></td>
-            </tr>
-            <tr class="hover:bg-slate-850 transition">
-              <td class="p-4 font-bold text-white flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-                HAT / SwinIR (Real-SR)
-              </td>
-              <td class="p-4 text-slate-300">Hybrid Attention Transformer</td>
-              <td class="p-4 text-slate-300">Máxima fidelidade geométrica em retas longas. Não deforma fontes com serifa.</td>
-              <td class="p-4 font-mono text-cyan-400">~2.8s</td>
-              <td class="p-4 font-mono text-slate-400">~65 MB</td>
-              <td class="p-4"><span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold">2º Lugar (Alta Precisão)</span></td>
-            </tr>
-            <tr class="hover:bg-slate-850 transition">
-              <td class="p-4 font-bold text-white flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                Real-ESRGAN General 4x
-              </td>
-              <td class="p-4 text-slate-300">RRDBNet 23 Blocos</td>
-              <td class="p-4 text-slate-300">Ótimo para adesivos com fotos e texturas complexas, mas preserva um leve halo no texto.</td>
-              <td class="p-4 font-mono text-cyan-400">~1.5s</td>
-              <td class="p-4 font-mono text-slate-400">32 MB</td>
-              <td class="p-4"><span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold">Uso Secundário (Fotos)</span></td>
-            </tr>
-            <tr class="hover:bg-slate-850 transition opacity-70">
-              <td class="p-4 font-medium text-slate-400 flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
-                SUPIR / SeeSR / Diffusion
-              </td>
-              <td class="p-4 text-slate-400">Latent Diffusion (SDXL)</td>
-              <td class="p-4 text-rose-300 font-semibold">Alucina letras falsas, deforma a escrita e inventa caracteres em marcas.</td>
-              <td class="p-4 font-mono text-rose-400">~25s - 40s</td>
-              <td class="p-4 font-mono text-slate-400">> 6 GB</td>
-              <td class="p-4"><span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 font-semibold">Reprovado para Textos</span></td>
-            </tr>
-            <tr class="hover:bg-slate-850 transition opacity-50">
-              <td class="p-4 font-medium text-slate-400 flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
-                Bicúbico / Lanczos
-              </td>
-              <td class="p-4 text-slate-400">Interpolação Matemática</td>
-              <td class="p-4 text-slate-400">Não remove borrão. Apenas estica os pixels borrados e aumenta o peso do arquivo.</td>
-              <td class="p-4 font-mono text-slate-400">&lt; 0.05s</td>
-              <td class="p-4 font-mono text-slate-400">0 MB</td>
-              <td class="p-4"><span class="px-2.5 py-1 rounded bg-slate-800 text-slate-400 border border-slate-700 font-semibold">Baseline Inútil</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Seção 4: Como rodar com novas imagens -->
-    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-      <h3 class="text-base font-bold text-white flex items-center gap-2">
-        <i class="fa-solid fa-terminal text-cyan-400"></i> Como testar seus próprios adesivos nesta POC
-      </h3>
-      <p class="text-xs text-slate-300">
-        Você pode colocar qualquer imagem sua (ex: <code class="bg-slate-800 px-1.5 py-0.5 rounded text-cyan-300">meu_adesivo.png</code>) na pasta <code class="bg-slate-800 px-1.5 py-0.5 rounded text-cyan-300">adesivos/samples/</code> e rodar o script de upscale:
-      </p>
-
-      <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto space-y-2">
-        <p class="text-slate-500"># Executar o upscale com o modelo campeão (Anime 6B):</p>
-        <p class="text-emerald-400">./bin/realesrgan-ncnn-vulkan -i samples/meu_adesivo.png -o outputs/meu_adesivo_4x.png -n realesrgan-x4plus-anime -s 4 -m bin/models</p>
-        <p class="text-slate-500 mt-3"># Ou rodar o pipeline automatizado que gera todos os comparativos:</p>
-        <p class="text-cyan-400">./run_poc.sh samples/meu_adesivo.png</p>
-      </div>
-    </section>
-
-  </main>
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500 space-y-1">
+    <p>KeyCore Tech Hub © 2026 — Plataforma de Super-Resolution para Ativos Gráficos</p>
+    <p>
+      Repositório de código aberto no GitHub: 
+      <a href="https://github.com/KeyCoreSH/stickers-keycore" target="_blank" class="text-cyan-400 hover:underline">
+        KeyCoreSH/stickers-keycore
+      </a>
+    </p>
+  </footer>
 
   <script>
-    const models = {
-      anime6b: {
-        src: 'outputs/output_realesrgan_anime6b.png',
-        name: 'Real-ESRGAN Anime 6B (4x) [Recomendado]',
-        btnId: 'btn-anime6b'
-      },
-      general: {
-        src: 'outputs/output_realesrgan_general.png',
-        name: 'Real-ESRGAN General (4x)',
-        btnId: 'btn-general'
-      },
-      animev3: {
-        src: 'outputs/output_realesr_animevideov3.png',
-        name: 'Real-ESRGAN AnimeVideo V3 (4x)',
-        btnId: 'btn-animev3'
-      },
-      lanczos: {
-        src: 'outputs/output_lanczos_sharpened.png',
-        name: 'Lanczos + Sharpen Tradicional (Sem IA)',
-        btnId: 'btn-lanczos'
+    // Carregar dados dos stickers
+    const stickersData = window.KEYCORE_STICKERS_DATA?.stickers || [];
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let currentModalIndex = 0;
+
+    // Elementos DOM
+    const gridEl = document.getElementById('stickers-grid');
+    const resultCountEl = document.getElementById('result-count');
+    const emptyStateEl = document.getElementById('empty-state');
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search');
+    const modalEl = document.getElementById('comparator-modal');
+
+    // Renderizar Galeria
+    function renderGrid() {
+      gridEl.innerHTML = '';
+
+      const filtered = stickersData.filter(item => {
+        const matchesCol = currentFilter === 'all' || item.colecao === currentFilter;
+        const q = searchQuery.toLowerCase();
+        const matchesSearch = !q || 
+          item.id.toLowerCase().includes(q) || 
+          item.titulo.toLowerCase().includes(q) || 
+          item.colecaoNome.toLowerCase().includes(q);
+        return matchesCol && matchesSearch;
+      });
+
+      resultCountEl.innerText = filtered.length;
+
+      if (filtered.length === 0) {
+        emptyStateEl.classList.remove('hidden');
+        return;
+      } else {
+        emptyStateEl.classList.add('hidden');
       }
-    };
 
-    function selectModel(key) {
-      const model = models[key];
-      if (!model) return;
+      filtered.forEach((item, index) => {
+        const globalIndex = stickersData.indexOf(item);
+        const card = document.createElement('div');
+        card.className = 'bg-slate-900 border border-slate-800/80 rounded-xl p-3 flex flex-col justify-between space-y-2.5 hover:border-slate-700 transition group relative shadow-md hover:shadow-cyan-500/5';
+        card.innerHTML = `
+          <!-- Top Tags -->
+          <div class="flex items-center justify-between text-[10px]">
+            <span class="font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-cyan-400 border border-slate-700">
+              ${item.id}
+            </span>
+            <span class="text-slate-500 truncate max-w-[90px]" title="${item.colecaoNome}">
+              ${item.colecaoNome}
+            </span>
+          </div>
 
-      document.getElementById('img-after').src = model.src;
-      document.getElementById('label-after-name').innerText = model.name;
+          <!-- Thumbnail com fundo xadrez suave -->
+          <div onclick="openModal(${globalIndex})" class="w-full aspect-square rounded-lg pattern-checkered p-2.5 flex items-center justify-center cursor-pointer overflow-hidden group-hover:scale-[1.02] transition">
+            <img src="${item.thumb}" alt="${item.titulo}" loading="lazy" class="w-full h-full object-contain filter drop-shadow">
+          </div>
 
-      // Update button styles
-      ['anime6b', 'general', 'animev3', 'lanczos'].forEach(k => {
-        const btn = document.getElementById(models[k].btnId);
-        if (k === key) {
-          btn.className = 'px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition';
-        } else {
-          btn.className = 'px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition';
-        }
+          <!-- Titulo -->
+          <div class="space-y-1">
+            <h4 class="text-xs font-semibold text-white line-clamp-1 group-hover:text-cyan-400 transition" title="${item.titulo}">
+              ${item.titulo}
+            </h4>
+            <p class="text-[10px] text-slate-500 font-mono">
+              ${item.enhW} × ${item.enhH} px
+            </p>
+          </div>
+
+          <!-- Ações -->
+          <div class="pt-1 flex items-center gap-1.5">
+            <button onclick="openModal(${globalIndex})" class="flex-1 py-1.5 px-2 bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 rounded-lg text-[11px] font-medium text-slate-200 transition flex items-center justify-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-sliders text-[10px]"></i> Comparar
+            </button>
+            <a href="${item.after}" download="${item.id}_enhanced_8k.png" class="p-1.5 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-300 transition text-[11px]" title="Baixar 8K Transparente">
+              <i class="fa-solid fa-download"></i>
+            </a>
+          </div>
+        `;
+        gridEl.appendChild(card);
       });
     }
 
-    // Split Slider Drag Logic
-    const container = document.getElementById('split-box');
-    const beforeDiv = document.getElementById('split-before');
-    const splitLine = document.getElementById('split-line');
+    // Filtro de Coleção
+    function filterCollection(col) {
+      currentFilter = col;
+      document.querySelectorAll('.category-pill').forEach(btn => {
+        btn.className = 'category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap';
+      });
+      const activeBtn = document.getElementById('tab-' + col);
+      if (activeBtn) {
+        activeBtn.className = 'category-pill active px-3 py-1.5 rounded-xl font-semibold bg-cyan-500 text-slate-950 transition whitespace-nowrap';
+      }
+      renderGrid();
+    }
+
+    // Busca
+    function handleSearch() {
+      searchQuery = searchInput.value.trim();
+      clearSearchBtn.classList.toggle('hidden', !searchQuery);
+      renderGrid();
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      renderGrid();
+    }
+
+    // Modal de Comparação
+    function openModal(index) {
+      currentModalIndex = index;
+      const item = stickersData[index];
+      if (!item) return;
+
+      document.getElementById('modal-badge-id').innerText = item.id;
+      document.getElementById('modal-collection-tag').innerText = item.colecaoNome;
+      document.getElementById('modal-title').innerText = item.titulo;
+
+      document.getElementById('modal-res-orig').innerText = `${item.origW} × ${item.origH} px`;
+      document.getElementById('modal-res-enh').innerText = `${item.enhW} × ${item.enhH} px (4x)`;
+
+      document.getElementById('modal-img-after').src = item.after;
+      document.getElementById('modal-img-before').src = item.before;
+
+      const downloadBtn = document.getElementById('modal-download-btn');
+      downloadBtn.href = item.after;
+      downloadBtn.download = `${item.id}_enhanced_8k.png`;
+
+      // Reset slider to 50%
+      setSliderPos(50);
+
+      // Show modal
+      modalEl.classList.remove('hidden');
+      setTimeout(() => {
+        modalEl.classList.remove('opacity-0', 'pointer-events-none');
+      }, 10);
+    }
+
+    function closeModal() {
+      modalEl.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        modalEl.classList.add('hidden');
+      }, 200);
+    }
+
+    function navigateModal(direction) {
+      let newIndex = currentModalIndex + direction;
+      if (newIndex < 0) newIndex = stickersData.length - 1;
+      if (newIndex >= stickersData.length) newIndex = 0;
+      openModal(newIndex);
+    }
+
+    // Background Mode
+    function setBgMode(mode) {
+      const box = document.getElementById('modal-split-box');
+      box.classList.remove('pattern-checkered', 'pattern-checkered-light', 'bg-slate-950', 'bg-white');
+
+      ['checkered', 'dark', 'white'].forEach(m => {
+        document.getElementById('bg-' + m).className = 'px-2 py-1 rounded text-slate-400 hover:text-white transition';
+      });
+
+      if (mode === 'checkered') {
+        box.classList.add('pattern-checkered');
+        document.getElementById('bg-checkered').className = 'px-2 py-1 rounded bg-slate-800 text-white transition';
+      } else if (mode === 'dark') {
+        box.classList.add('bg-slate-950');
+        document.getElementById('bg-dark').className = 'px-2 py-1 rounded bg-slate-800 text-white transition';
+      } else if (mode === 'white') {
+        box.classList.add('bg-white');
+        document.getElementById('bg-white').className = 'px-2 py-1 rounded bg-slate-800 text-white transition';
+      }
+    }
+
+    // Slider Drag Logic
+    const modalBox = document.getElementById('modal-split-box');
+    const splitLine = document.getElementById('modal-split-line');
+    const imgBefore = document.getElementById('modal-img-before');
     let isDragging = false;
 
-    function updateSlider(x) {
-      const rect = container.getBoundingClientRect();
-      let pos = (x - rect.left) / rect.width;
-      if (pos < 0.02) pos = 0.02;
-      if (pos > 0.98) pos = 0.98;
-      const percentage = pos * 100;
-      beforeDiv.style.width = percentage + '%';
+    function setSliderPos(percentage) {
+      imgBefore.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
       splitLine.style.left = percentage + '%';
     }
 
-    container.addEventListener('mousedown', (e) => {
+    function updateSlider(x) {
+      const rect = modalBox.getBoundingClientRect();
+      let pos = (x - rect.left) / rect.width;
+      if (pos < 0.02) pos = 0.02;
+      if (pos > 0.98) pos = 0.98;
+      setSliderPos(pos * 100);
+    }
+
+    modalBox.addEventListener('mousedown', (e) => {
       isDragging = true;
       updateSlider(e.clientX);
     });
 
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
-
+    window.addEventListener('mouseup', () => { isDragging = false; });
     window.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       updateSlider(e.clientX);
     });
 
-    // Touch support for mobile
-    container.addEventListener('touchstart', (e) => {
+    // Touch support
+    modalBox.addEventListener('touchstart', (e) => {
       isDragging = true;
       updateSlider(e.touches[0].clientX);
     });
-    window.addEventListener('touchend', () => {
-      isDragging = false;
-    });
+    window.addEventListener('touchend', () => { isDragging = false; });
     window.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
       updateSlider(e.touches[0].clientX);
     });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (modalEl.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeModal();
+      else if (e.key === 'ArrowLeft') navigateModal(-1);
+      else if (e.key === 'ArrowRight') navigateModal(1);
+    });
+
+    // Close on click outside modal content
+    modalEl.addEventListener('click', closeModal);
+
+    function downloadAllInfo() {
+      window.open('https://github.com/KeyCoreSH/stickers-keycore/archive/refs/heads/main.zip', '_blank');
+    }
+
+    // Inicialização
+    renderGrid();
   </script>
 </body>
 </html>
