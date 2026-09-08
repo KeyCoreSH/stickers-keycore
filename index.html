@@ -3,261 +3,426 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KeyCore Stickers HD — 146 Adesivos em Ultra-Resolução 8K</title>
-  <meta name="description" content="Catálogo oficial dos 146 adesivos da KeyCore restaurados com Real-ESRGAN Anime 6B para impressão em 300+ DPI.">
+  <title>KeyCore Stickers HD — Catálogo de Super-Resolution 8K</title>
+  <meta name="description" content="Catálogo oficial dos 146 adesivos da KeyCore restaurados via Real-ESRGAN Anime 6B para impressão em 300+ DPI.">
+  
+  <!-- Tipografia Editorial: Manrope + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS & FontAwesome -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Configuração de Cores & Tokens KeyCore Workshop Visual System -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kc: {
+              void: '#070B0E',        // 75% Background dominante
+              grafite: '#11161B',     // Superfícies, mesa e cards
+              charcoal: '#151C25',    // UI elevada e superfícies técnicas
+              border: '#1E2631',      // Bordas estruturais discretas
+              borderHover: '#283240', // Borda no hover
+              white: '#F4F5F3',       // 15% Títulos e informação principal
+              subtext: '#C4C6C7',     // Subtítulos
+              muted: '#858B91',       // Microcopy e separadores
+              lime: '#CBFF2E',        // 7% Lime principal funcional (Ação/CTA/Destaque)
+              limeBright: '#BFFF18',  // Microacentos e indicadores
+              magenta: '#F000D4',     // 3% institucional KeyCore
+              violet: '#7138FF',
+              cyan: '#00C8F4'
+            }
+          },
+          fontFamily: {
+            sans: ['Manrope', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Dados dos 146 Stickers -->
   <script src="stickers_data.js"></script>
+
   <style>
+    /* Padrão Xadrez Transparência Fiel */
     .pattern-checkered {
-      background-color: #0f172a;
+      background-color: #070B0E;
       background-image: 
-        linear-gradient(45deg, #1e293b 25%, transparent 25%), 
-        linear-gradient(-45deg, #1e293b 25%, transparent 25%), 
-        linear-gradient(45deg, transparent 75%, #1e293b 75%), 
-        linear-gradient(-45deg, transparent 75%, #1e293b 75%);
-      background-size: 20px 20px;
-      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        linear-gradient(45deg, #11161B 25%, transparent 25%), 
+        linear-gradient(-45deg, #11161B 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #11161B 75%), 
+        linear-gradient(-45deg, transparent 75%, #11161B 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
     }
     .pattern-checkered-light {
-      background-color: #f1f5f9;
+      background-color: #FFFFFF;
       background-image: 
-        linear-gradient(45deg, #e2e8f0 25%, transparent 25%), 
-        linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), 
-        linear-gradient(45deg, transparent 75%, #e2e8f0 75%), 
-        linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
-      background-size: 20px 20px;
-      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        linear-gradient(45deg, #E5E7EB 25%, transparent 25%), 
+        linear-gradient(-45deg, #E5E7EB 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #E5E7EB 75%), 
+        linear-gradient(-45deg, transparent 75%, #E5E7EB 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
     }
-    /* Hide scrollbar */
+    /* Ocultar barra de rolagem horizontal */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col antialiased selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-kc-void text-kc-white min-h-screen font-sans flex flex-col antialiased selection:bg-kc-lime selection:text-kc-void">
 
-  <!-- Header -->
-  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+  <!-- Header Oficial KeyCore -->
+  <header class="border-b border-kc-border bg-kc-grafite/95 backdrop-blur sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center font-bold text-slate-950 text-xl shadow-lg shadow-cyan-500/20">
-          K
+      
+      <!-- Marca KeyCore (Preservada no canto superior esquerdo com respiro) -->
+      <div class="flex items-center space-x-3.5">
+        <div class="w-9 h-9 rounded-xl bg-kc-charcoal border border-kc-border flex items-center justify-center font-bold text-kc-white shadow-sm relative overflow-hidden group">
+          <span class="text-base font-mono font-extrabold tracking-tight group-hover:text-kc-lime transition">KC</span>
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-kc-lime"></div>
         </div>
         <div>
-          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
-            KeyCore Stickers HD
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-semibold hidden sm:inline-block">
-              Super-Resolution 8K
+          <div class="flex items-center gap-2">
+            <span class="text-sm sm:text-base font-extrabold tracking-[-0.03em] text-kc-white">KeyCore</span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-kc-charcoal text-kc-muted border border-kc-border">
+              STICKERS // 8K
             </span>
-          </h1>
-          <p class="text-xs text-slate-400">146 artes oficiais em ultra-resolução com fundo transparente</p>
+          </div>
+          <p class="text-[11px] text-kc-muted hidden sm:block">Tecnologia aplicada ao mundo real. Menos hype, mais utilidade.</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a href="https://github.com/KeyCoreSH/stickers-keycore" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-2 shadow-sm">
+      <!-- Links & Indicador de Status Operacional -->
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-kc-charcoal border border-kc-border text-xs text-kc-subtext">
+          <span class="w-2 h-2 rounded-full bg-kc-limeBright animate-pulse"></span>
+          <span class="font-mono text-[11px] text-kc-white font-medium">146 ATIVOS PROCESSADOS</span>
+        </div>
+
+        <a href="https://github.com/KeyCoreSH/stickers-keycore" target="_blank" class="px-3.5 py-1.5 rounded-full bg-kc-charcoal hover:bg-kc-border border border-kc-border text-kc-white text-xs font-semibold transition flex items-center gap-2 shadow-sm">
           <i class="fa-brands fa-github text-sm"></i>
-          <span class="hidden sm:inline">Repositório GitHub</span>
+          <span class="hidden sm:inline">GitHub</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero & Status Banner -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-2 w-full">
-    <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
-      <div class="max-w-4xl space-y-3 relative z-10">
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-            <i class="fa-solid fa-check-circle"></i> 146 Stickers Prontos (300+ DPI)
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Real-ESRGAN Anime 6B (4x)
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold">
-            <i class="fa-solid fa-layer-group"></i> RGBA Transparente
+  <!-- Hero Section 16:9 Editorial (40% Comunicação / 60% Visual & Storytelling) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 pb-4 w-full">
+    <div class="bg-kc-grafite border border-kc-border rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Área Esquerda: Comunicação, Título em 2 Camadas, 4 Benefícios e CTA (5 colunas) -->
+      <div class="lg:col-span-6 space-y-6 z-10">
+        
+        <!-- Microcopy Categoria -->
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-mono uppercase font-semibold tracking-[0.2em] text-kc-lime flex items-center gap-1.5">
+            <i class="fa-solid fa-layer-group text-[10px]"></i> KEYCORE ASSET ENGINE // VULKAN M3 PRO
           </span>
         </div>
-        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-          Qualidade gráfica máxima para adesivos, vinil e corte plotter.
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
-          Os adesivos foram ampliados de matrizes raster e aprimorados via rede neural para eliminar o borrão em textos e logos. Selecione qualquer sticker abaixo para <strong>arrastar o divisor interativo Antes vs Depois</strong> e baixar o PNG transparente em tamanho total.
+
+        <!-- Título em Duas Camadas: [Contexto] em Branco + [Conceito Principal] em Lime -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.04em] leading-[1.08] text-kc-white">
+          COLEÇÃO OFICIAL DE STICKERS <br>
+          <span class="text-kc-lime">SUPER-RESOLUTION 8K</span>
+        </h1>
+
+        <!-- Subtítulo / Promessa Técnica Realista -->
+        <p class="text-sm sm:text-base text-kc-subtext leading-relaxed tracking-[-0.01em]">
+          146 adesivos e vinis ampliados de matrizes raster com restauração por rede neural. Elimina 100% dos artefatos de compressão JPEG e reconstrói bordas sólidas para corte plotter em 300+ DPI.
         </p>
+
+        <!-- Quatro Benefícios Padronizados (Regra dos 4 Benefícios) -->
+        <div class="grid grid-cols-2 gap-3 pt-2 border-t border-kc-border/70">
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-check text-kc-lime text-xs mt-1"></i>
+            <div>
+              <p class="text-[11px] font-bold uppercase tracking-[0.08em] text-kc-white">146 Ativos em 8K</p>
+              <p class="text-[10px] text-kc-muted">Matrizes completas até 9280px</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-check text-kc-lime text-xs mt-1"></i>
+            <div>
+              <p class="text-[11px] font-bold uppercase tracking-[0.08em] text-kc-white">300+ DPI para Vinil</p>
+              <p class="text-[10px] text-kc-muted">Pronto para plotter e gráfica</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-check text-kc-lime text-xs mt-1"></i>
+            <div>
+              <p class="text-[11px] font-bold uppercase tracking-[0.08em] text-kc-white">Real-ESRGAN Anime 6B</p>
+              <p class="text-[10px] text-kc-muted">Tipografia nítida sem alucinação</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-check text-kc-lime text-xs mt-1"></i>
+            <div>
+              <p class="text-[11px] font-bold uppercase tracking-[0.08em] text-kc-white">Alfa Transparente</p>
+              <p class="text-[10px] text-kc-muted">Corte limpo sem borda cinza</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Principal: Maior Bloco Lime do Card, Formato Pill -->
+        <div class="pt-2 flex flex-wrap items-center gap-3">
+          <a href="https://github.com/KeyCoreSH/stickers-keycore/archive/refs/heads/main.zip" target="_blank" class="px-7 py-3 rounded-full bg-kc-lime hover:bg-kc-limeBright text-kc-void text-xs sm:text-sm font-extrabold tracking-tight transition flex items-center gap-2 shadow-lg shadow-kc-lime/10">
+            BAIXAR PACOTE COMPLETO (.ZIP) <span class="text-base leading-none">→</span>
+          </a>
+          <a href="#catalogo" class="px-5 py-3 rounded-full bg-kc-charcoal hover:bg-kc-border text-kc-white text-xs sm:text-sm font-semibold border border-kc-border transition">
+            Explorar Catálogo ↓
+          </a>
+        </div>
+
       </div>
-      <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-cyan-500/10 to-transparent pointer-events-none"></div>
+
+      <!-- Área Direita: Storytelling Visual & Laptop/Dashboard de Métricas (7 colunas) -->
+      <div class="lg:col-span-6 flex flex-col justify-center relative">
+        
+        <!-- Mockup do Terminal de Qualidade Gráfica & Engenharia -->
+        <div class="bg-kc-charcoal border border-kc-border rounded-2xl p-5 shadow-2xl space-y-4 relative overflow-hidden">
+          
+          <!-- Terminal Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-kc-border">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+              <span class="text-[11px] font-mono text-kc-muted ml-2">pipeline // quality_audit.log</span>
+            </div>
+            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-kc-lime/10 text-kc-lime border border-kc-lime/30 font-bold">
+              PASS 300+ DPI
+            </span>
+          </div>
+
+          <!-- Métricas de Aplicação Técnica Real (Sem clichês sci-fi) -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-kc-grafite/80 border border-kc-border rounded-xl p-3 space-y-1">
+              <p class="text-[10px] font-mono uppercase text-kc-muted">Fator de Upscale</p>
+              <p class="text-sm font-mono font-extrabold text-kc-lime">4.0× SUPER-RES</p>
+              <p class="text-[10px] text-kc-subtext">2048px ➔ 8192px nativo</p>
+            </div>
+            <div class="bg-kc-grafite/80 border border-kc-border rounded-xl p-3 space-y-1">
+              <p class="text-[10px] font-mono uppercase text-kc-muted">Supressão de Ruído</p>
+              <p class="text-sm font-mono font-extrabold text-kc-white">100% ELIMINADO</p>
+              <p class="text-[10px] text-kc-subtext">Artefatos JPEG neutralizados</p>
+            </div>
+            <div class="bg-kc-grafite/80 border border-kc-border rounded-xl p-3 space-y-1">
+              <p class="text-[10px] font-mono uppercase text-kc-muted">Fidelidade Tipográfica</p>
+              <p class="text-sm font-mono font-extrabold text-kc-white">ZERO HALLUCINATION</p>
+              <p class="text-[10px] text-kc-subtext">Letras e glifos intactos</p>
+            </div>
+            <div class="bg-kc-grafite/80 border border-kc-border rounded-xl p-3 space-y-1">
+              <p class="text-[10px] font-mono uppercase text-kc-muted">Faca de Corte</p>
+              <p class="text-sm font-mono font-extrabold text-kc-lime">CANAL ALFA LIMPO</p>
+              <p class="text-[10px] text-kc-subtext">Bordas sólidas para plotter</p>
+            </div>
+          </div>
+
+          <!-- Mini Showcase Visual de Comparação Técnica -->
+          <div class="bg-kc-grafite border border-kc-border rounded-xl p-3 flex items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-lg pattern-checkered p-1 flex items-center justify-center border border-kc-border">
+                <img src="thumbnails/KC01-01.png" alt="Amostra KC01-01" class="w-full h-full object-contain">
+              </div>
+              <div>
+                <p class="text-xs font-bold text-kc-white font-mono">KC01-01 // KeyCore Tech Hub</p>
+                <p class="text-[11px] text-kc-muted">Matriz 9280 × 3184 px • Fundo Transparente</p>
+              </div>
+            </div>
+            <button onclick="openModal(0)" class="px-3 py-1.5 rounded-full bg-kc-lime hover:bg-kc-limeBright text-kc-void text-xs font-bold transition flex items-center gap-1.5">
+              <i class="fa-solid fa-sliders text-[10px]"></i> Ver Split
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   </section>
 
-  <!-- Barra de Filtros e Busca -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-2 w-full space-y-3 sticky top-[61px] bg-slate-950/95 backdrop-blur z-30 py-3">
+  <!-- Seção do Catálogo: Filtros e Busca -->
+  <section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-2 w-full space-y-4 sticky top-[61px] bg-kc-void/95 backdrop-blur z-30 py-3">
     <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-      <!-- Busca rápida -->
+      
+      <!-- Campo de Busca Editorial -->
       <div class="relative flex-1 max-w-md">
-        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-kc-muted text-xs"></i>
         <input 
           id="search-input"
           type="text" 
-          placeholder="Buscar por título, palavra-chave ou código (ex: KC01, deploy, café)..."
-          class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition"
+          placeholder="Buscar por código, tema ou palavra (ex: KC01, deploy, café)..."
+          class="w-full bg-kc-grafite border border-kc-border rounded-xl pl-9 pr-8 py-2 text-xs text-kc-white placeholder-kc-muted focus:outline-none focus:border-kc-lime transition"
           oninput="handleSearch()"
         >
-        <button id="clear-search" onclick="clearSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs hidden">
+        <button id="clear-search" onclick="clearSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 text-kc-muted hover:text-kc-white text-xs hidden">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <!-- Contador de Resultados -->
-      <div class="text-xs text-slate-400 flex items-center justify-between sm:justify-end gap-2">
-        <span>Mostrando: <strong id="result-count" class="text-cyan-400">146</strong> de 146 adesivos</span>
-        <button onclick="downloadAllInfo()" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 text-[11px] transition flex items-center gap-1.5">
-          <i class="fa-solid fa-download text-cyan-400"></i> Baixar Pacote Completo (GitHub)
-        </button>
+      <!-- Contador de Resultados & Link Direto do GitHub -->
+      <div class="text-xs text-kc-subtext flex items-center justify-between sm:justify-end gap-3">
+        <span>Exibindo: <strong id="result-count" class="text-kc-lime font-mono font-bold">146</strong> de 146 adesivos</span>
+        <a href="https://github.com/KeyCoreSH/stickers-keycore/tree/main/KeyCore_146_stickers_PNG_HD_transparentes_enhanced" target="_blank" class="px-3 py-1.5 rounded-lg bg-kc-grafite border border-kc-border text-kc-white hover:border-kc-lime transition text-xs flex items-center gap-1.5">
+          <i class="fa-solid fa-folder-open text-kc-lime"></i> Ver no GitHub
+        </a>
       </div>
     </div>
 
-    <!-- Pílulas de Coleção -->
+    <!-- Pílulas de Coleções (Design Tokens KeyCore) -->
     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
-      <button onclick="filterCollection('all')" id="tab-all" class="category-pill active px-3 py-1.5 rounded-xl font-semibold bg-cyan-500 text-slate-950 transition whitespace-nowrap">
+      <button onclick="filterCollection('all')" id="tab-all" class="category-pill active px-3.5 py-1.5 rounded-full font-bold bg-kc-lime text-kc-void transition whitespace-nowrap shadow-sm">
         Todas as Coleções (146)
       </button>
-      <button onclick="filterCollection('01_neon')" id="tab-01_neon" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        ⚡ 01. Neon (14)
+      <button onclick="filterCollection('01_neon')" id="tab-01_neon" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        01. Neon & Glow (14)
       </button>
-      <button onclick="filterCollection('02_inovacao')" id="tab-02_inovacao" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        💡 02. Inovação (15)
+      <button onclick="filterCollection('02_inovacao')" id="tab-02_inovacao" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        02. Inovação (15)
       </button>
-      <button onclick="filterCollection('03_tech_people')" id="tab-03_tech_people" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        👥 03. Tech & People (14)
+      <button onclick="filterCollection('03_tech_people')" id="tab-03_tech_people" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        03. Tech & People (14)
       </button>
-      <button onclick="filterCollection('04_construir_juntos')" id="tab-04_construir_juntos" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        🤝 04. Construir Juntos (15)
+      <button onclick="filterCollection('04_construir_juntos')" id="tab-04_construir_juntos" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        04. Construir Juntos (15)
       </button>
-      <button onclick="filterCollection('05_ideias_que_movem')" id="tab-05_ideias_que_movem" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        🚀 05. Ideias que Movem (12)
+      <button onclick="filterCollection('05_ideias_que_movem')" id="tab-05_ideias_que_movem" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        05. Ideias que Movem (12)
       </button>
-      <button onclick="filterCollection('06_lancar_e_evoluir')" id="tab-06_lancar_e_evoluir" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        📈 06. Lançar & Evoluir (13)
+      <button onclick="filterCollection('06_lancar_e_evoluir')" id="tab-06_lancar_e_evoluir" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        06. Lançar & Evoluir (13)
       </button>
-      <button onclick="filterCollection('07_keep_building')" id="tab-07_keep_building" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        🔨 07. Keep Building (16)
+      <button onclick="filterCollection('07_keep_building')" id="tab-07_keep_building" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        07. Keep Building (16)
       </button>
-      <button onclick="filterCollection('08_codigo_em_acao')" id="tab-08_codigo_em_acao" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        💻 08. Código em Ação (14)
+      <button onclick="filterCollection('08_codigo_em_acao')" id="tab-08_codigo_em_acao" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        08. Código em Ação (14)
       </button>
-      <button onclick="filterCollection('09_build_better')" id="tab-09_build_better" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        🧊 09. Build Better (13)
+      <button onclick="filterCollection('09_build_better')" id="tab-09_build_better" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        09. Build Better (13)
       </button>
-      <button onclick="filterCollection('10_devolvemos_tempo')" id="tab-10_devolvemos_tempo" class="category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap">
-        ⏱️ 10. Devolvemos Tempo (20)
+      <button onclick="filterCollection('10_devolvemos_tempo')" id="tab-10_devolvemos_tempo" class="category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap">
+        10. Devolvemos Tempo (20)
       </button>
     </div>
   </section>
 
-  <!-- Grid de Adesivos -->
+  <!-- Grid de Adesivos (146 Cards) -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
     <div id="stickers-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5 sm:gap-4">
-      <!-- Inserido dinamicamente via JS -->
+      <!-- Inserido dinamicamente via JavaScript -->
     </div>
 
-    <!-- Empty State se busca não encontrar -->
+    <!-- Empty State -->
     <div id="empty-state" class="hidden text-center py-16 space-y-3">
-      <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mx-auto text-slate-500">
+      <div class="w-12 h-12 rounded-full bg-kc-grafite border border-kc-border flex items-center justify-center mx-auto text-kc-muted">
         <i class="fa-solid fa-ghost text-xl"></i>
       </div>
-      <h3 class="text-sm font-semibold text-white">Nenhum adesivo encontrado</h3>
-      <p class="text-xs text-slate-400">Tente buscar por outro termo ou selecione "Todas as Coleções".</p>
+      <h3 class="text-sm font-semibold text-kc-white">Nenhum adesivo encontrado</h3>
+      <p class="text-xs text-kc-muted">Tente buscar por outro termo ou selecione "Todas as Coleções".</p>
     </div>
   </main>
 
-  <!-- Modal Interativo do Comparador Antes vs Depois -->
-  <div id="comparator-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 transition-opacity opacity-0 pointer-events-none">
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[95vh] flex flex-col shadow-2xl overflow-hidden relative" onclick="event.stopPropagation()">
+  <!-- Modal Interativo do Comparador Antes vs Depois (Split Slider) -->
+  <div id="comparator-modal" class="fixed inset-0 z-50 bg-kc-void/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 transition-opacity opacity-0 pointer-events-none">
+    <div class="bg-kc-grafite border border-kc-border rounded-3xl w-full max-w-4xl max-h-[95vh] flex flex-col shadow-2xl overflow-hidden relative" onclick="event.stopPropagation()">
 
       <!-- Modal Header -->
-      <div class="px-5 py-3.5 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
-        <div class="flex items-center space-x-2.5">
-          <span id="modal-badge-id" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+      <div class="px-5 py-4 border-b border-kc-border flex items-center justify-between bg-kc-charcoal/80">
+        <div class="flex items-center space-x-3">
+          <span id="modal-badge-id" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded bg-kc-void text-kc-lime border border-kc-border">
             KC01-01
           </span>
-          <span id="modal-collection-tag" class="text-[11px] text-slate-400 hidden sm:inline">
-            Neon & Glow
-          </span>
-          <h3 id="modal-title" class="text-sm font-bold text-white truncate max-w-xs sm:max-w-md">
-            KeyCore Tech Hub
-          </h3>
+          <div>
+            <div class="flex items-center gap-2">
+              <span id="modal-collection-tag" class="text-[10px] font-mono uppercase tracking-wider text-kc-muted">
+                01. NEON & GLOW
+              </span>
+            </div>
+            <h3 id="modal-title" class="text-sm sm:text-base font-extrabold text-kc-white truncate max-w-xs sm:max-w-md">
+              KeyCore Tech Hub
+            </h3>
+          </div>
         </div>
 
-        <div class="flex items-center space-x-2">
-          <!-- Background Mode Switcher -->
-          <div class="flex items-center bg-slate-950 border border-slate-800 rounded-lg p-0.5 text-xs">
-            <button onclick="setBgMode('checkered')" id="bg-checkered" class="px-2 py-1 rounded bg-slate-850 text-white transition" title="Fundo Transparente Xadrez">
+        <div class="flex items-center space-x-3">
+          <!-- Background Mode Switcher (Transparente, Escuro, Faca de Corte Branco) -->
+          <div class="flex items-center bg-kc-void border border-kc-border rounded-full p-1 text-xs">
+            <button onclick="setBgMode('checkered')" id="bg-checkered" class="px-2.5 py-1 rounded-full bg-kc-charcoal text-kc-lime font-medium transition" title="Fundo Transparente Xadrez">
               <i class="fa-solid fa-table-cells text-[11px]"></i>
             </button>
-            <button onclick="setBgMode('dark')" id="bg-dark" class="px-2 py-1 rounded text-slate-400 hover:text-white transition" title="Fundo Escuro">
+            <button onclick="setBgMode('dark')" id="bg-dark" class="px-2.5 py-1 rounded-full text-kc-muted hover:text-kc-white transition" title="Fundo Escuro Contínuo">
               <i class="fa-solid fa-moon text-[11px]"></i>
             </button>
-            <button onclick="setBgMode('white')" id="bg-white" class="px-2 py-1 rounded text-slate-400 hover:text-white transition" title="Fundo Branco (Inspecionar Faca de Corte)">
+            <button onclick="setBgMode('white')" id="bg-white" class="px-2.5 py-1 rounded-full text-kc-muted hover:text-kc-white transition" title="Fundo Branco (Inspecionar Faca de Corte)">
               <i class="fa-solid fa-sun text-[11px]"></i>
             </button>
           </div>
 
-          <button onclick="closeModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition">
+          <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-kc-charcoal hover:bg-kc-border text-kc-muted hover:text-kc-white flex items-center justify-center transition">
             <i class="fa-solid fa-xmark text-sm"></i>
           </button>
         </div>
       </div>
 
-      <!-- Modal Body (Comparador Split-Slider) -->
+      <!-- Modal Body (Comparador Split-Slider com Clip-Path) -->
       <div class="p-4 sm:p-6 overflow-y-auto flex-1 flex flex-col items-center justify-center space-y-4">
 
-        <!-- Split Slider Container -->
-        <div id="modal-split-box" class="w-full max-w-[580px] aspect-square rounded-2xl border border-slate-700/80 pattern-checkered relative cursor-ew-resize shadow-2xl overflow-hidden select-none touch-none">
+        <!-- Split Slider Container (Perfeitamente responsivo e alinhado) -->
+        <div id="modal-split-box" class="w-full max-w-[580px] aspect-square rounded-2xl border border-kc-border pattern-checkered relative cursor-ew-resize shadow-2xl overflow-hidden select-none touch-none">
           
           <!-- Imagem DEPOIS (8K Real-ESRGAN Anime 6B) -->
           <img id="modal-img-after" src="" alt="Depois - 8K" class="absolute inset-0 w-full h-full object-contain p-6 pointer-events-none select-none">
-          <div class="absolute top-3.5 right-3.5 px-3 py-1 bg-emerald-500/90 text-slate-950 text-[11px] font-bold rounded-lg backdrop-blur shadow flex items-center gap-1.5 z-10 select-none pointer-events-none">
-            <i class="fa-solid fa-sparkles"></i> DEPOIS: 8K Restaurado
+          <div class="absolute top-3.5 right-3.5 px-3 py-1 bg-kc-lime text-kc-void text-[11px] font-mono font-extrabold uppercase tracking-wider rounded-full shadow flex items-center gap-1.5 z-10 select-none pointer-events-none">
+            <i class="fa-solid fa-sparkles"></i> DEPOIS // 8K RESTAURADO
           </div>
 
-          <!-- Imagem ANTES (Raster Original com Borrão) com Clip-Path -->
+          <!-- Imagem ANTES (Raster Original com Borrão) recortada via Clip-Path -->
           <img id="modal-img-before" src="" alt="Antes - Borrão" class="absolute inset-0 w-full h-full object-contain p-6 pointer-events-none select-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-          <div class="absolute top-3.5 left-3.5 px-3 py-1 bg-rose-500/90 text-white text-[11px] font-bold rounded-lg backdrop-blur shadow flex items-center gap-1.5 z-10 select-none pointer-events-none">
-            <i class="fa-solid fa-triangle-exclamation"></i> ANTES: Original
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 bg-kc-charcoal/95 border border-kc-border text-kc-white text-[11px] font-mono font-bold uppercase tracking-wider rounded-full shadow flex items-center gap-1.5 z-10 select-none pointer-events-none">
+            <i class="fa-solid fa-triangle-exclamation text-amber-400"></i> ANTES // RASTER
           </div>
 
-          <!-- Linha divisória e puxador -->
-          <div id="modal-split-line" class="absolute top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_12px_rgba(56,189,248,0.9)] cursor-ew-resize z-20 pointer-events-none" style="left: 50%;">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-slate-950/90 border-2 border-cyan-400 rounded-full flex items-center justify-center text-cyan-400 shadow-xl backdrop-blur">
+          <!-- Linha Divisória e Puxador em Lime Funcional -->
+          <div id="modal-split-line" class="absolute top-0 bottom-0 w-[2px] bg-kc-lime shadow-[0_0_12px_rgba(203,255,46,0.6)] cursor-ew-resize z-20 pointer-events-none" style="left: 50%;">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-kc-void border-2 border-kc-lime rounded-full flex items-center justify-center text-kc-lime shadow-xl">
               <i class="fa-solid fa-arrows-left-right text-xs"></i>
             </div>
           </div>
         </div>
 
-        <!-- Instruções e Navegação -->
-        <div class="flex items-center justify-between w-full max-w-[580px] text-xs text-slate-400 px-1">
-          <button onclick="navigateModal(-1)" class="hover:text-white flex items-center gap-1.5 transition">
+        <!-- Navegação por Teclado e Instruções -->
+        <div class="flex items-center justify-between w-full max-w-[580px] text-xs text-kc-muted px-1">
+          <button onclick="navigateModal(-1)" class="hover:text-kc-white flex items-center gap-1.5 transition">
             <i class="fa-solid fa-chevron-left text-[10px]"></i> Anterior (←)
           </button>
-          <span class="text-[11px] text-slate-500">👈 Arraste a barra para comparar 👉</span>
-          <button onclick="navigateModal(1)" class="hover:text-white flex items-center gap-1.5 transition">
+          <span class="text-[11px] text-kc-muted font-mono uppercase tracking-wider">Arraste para comparar nitidez</span>
+          <button onclick="navigateModal(1)" class="hover:text-kc-white flex items-center gap-1.5 transition">
             Próximo (→) <i class="fa-solid fa-chevron-right text-[10px]"></i>
           </button>
         </div>
 
-        <!-- Metadados de Resolução e Botão de Download -->
-        <div class="w-full max-w-[580px] bg-slate-950 rounded-xl p-3.5 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <!-- Metadados de Resolução e Botão de Download CTA -->
+        <div class="w-full max-w-[580px] bg-kc-charcoal rounded-2xl p-4 border border-kc-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <div class="text-xs space-y-1 text-center sm:text-left">
-            <div class="text-slate-400">
-              Resolução: <span id="modal-res-orig" class="text-rose-400 font-mono">2048 × 1500 px</span> 
-              <span class="text-slate-600 font-bold mx-1">➔</span> 
-              <span id="modal-res-enh" class="text-emerald-400 font-bold font-mono">8192 × 6000 px (4x)</span>
+            <div class="text-kc-subtext">
+              Resolução: <span id="modal-res-orig" class="text-kc-muted font-mono">2048 × 1500 px</span> 
+              <span class="text-kc-lime font-bold mx-1">➔</span> 
+              <span id="modal-res-enh" class="text-kc-lime font-bold font-mono">8192 × 6000 px (4x)</span>
             </div>
-            <p class="text-[11px] text-slate-500">Pronto para vinil e impressão em 300 a 600 DPI.</p>
+            <p class="text-[11px] text-kc-muted">Renderizado com canal alfa limpo para vinil e corte plotter.</p>
           </div>
 
-          <a id="modal-download-btn" href="" download class="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-cyan-500 to-emerald-400 hover:from-cyan-400 hover:to-emerald-300 text-slate-950 text-xs font-bold rounded-lg shadow-lg shadow-cyan-500/20 transition flex items-center justify-center gap-2">
-            <i class="fa-solid fa-download"></i> Baixar PNG 8K Transparente
+          <a id="modal-download-btn" href="" download class="w-full sm:w-auto px-6 py-2.5 bg-kc-lime hover:bg-kc-limeBright text-kc-void text-xs font-extrabold uppercase tracking-tight rounded-full shadow transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-download"></i> Baixar PNG 8K →
           </a>
         </div>
 
@@ -265,14 +430,15 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500 space-y-1">
-    <p>KeyCore Tech Hub © 2026 — Plataforma de Super-Resolution para Ativos Gráficos</p>
-    <p>
-      Repositório de código aberto no GitHub: 
-      <a href="https://github.com/KeyCoreSH/stickers-keycore" target="_blank" class="text-cyan-400 hover:underline">
+  <!-- Footer Oficial KeyCore -->
+  <footer class="border-t border-kc-border bg-kc-grafite py-8 text-center text-xs text-kc-muted space-y-2">
+    <p class="font-medium text-kc-subtext">KeyCore Tech Hub © 2026 — Plataforma de Super-Resolution para Ativos Gráficos</p>
+    <p class="text-[11px]">
+      Repositório oficial: 
+      <a href="https://github.com/KeyCoreSH/stickers-keycore" target="_blank" class="text-kc-lime hover:underline font-mono">
         KeyCoreSH/stickers-keycore
       </a>
+      • Licença Open Source MIT
     </p>
   </footer>
 
@@ -280,11 +446,13 @@
     // Carregar dados dos stickers
     const stickersData = window.KEYCORE_STICKERS_DATA?.stickers || [];
     const RAW_BASE = 'https://raw.githubusercontent.com/KeyCoreSH/stickers-keycore/main/';
+    
     function getAssetUrl(path) {
       if (!path) return '';
       if (path.startsWith('http://') || path.startsWith('https://')) return path;
       return RAW_BASE + path;
     }
+
     let currentFilter = 'all';
     let searchQuery = '';
     let currentModalIndex = 0;
@@ -297,7 +465,7 @@
     const clearSearchBtn = document.getElementById('clear-search');
     const modalEl = document.getElementById('comparator-modal');
 
-    // Renderizar Galeria
+    // Renderizar Galeria (Cards Padronizados)
     function renderGrid() {
       gridEl.innerHTML = '';
 
@@ -320,42 +488,42 @@
         emptyStateEl.classList.add('hidden');
       }
 
-      filtered.forEach((item, index) => {
+      filtered.forEach((item) => {
         const globalIndex = stickersData.indexOf(item);
         const card = document.createElement('div');
-        card.className = 'bg-slate-900 border border-slate-800/80 rounded-xl p-3 flex flex-col justify-between space-y-2.5 hover:border-slate-700 transition group relative shadow-md hover:shadow-cyan-500/5';
+        card.className = 'bg-kc-grafite border border-kc-border hover:border-kc-borderHover rounded-2xl p-3 flex flex-col justify-between space-y-2.5 transition group relative shadow-sm';
         card.innerHTML = `
           <!-- Top Tags -->
           <div class="flex items-center justify-between text-[10px]">
-            <span class="font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-cyan-400 border border-slate-700">
+            <span class="font-mono font-bold px-1.5 py-0.5 rounded bg-kc-void text-kc-lime border border-kc-border">
               ${item.id}
             </span>
-            <span class="text-slate-500 truncate max-w-[90px]" title="${item.colecaoNome}">
+            <span class="text-kc-muted truncate max-w-[90px] font-mono uppercase text-[9px]" title="${item.colecaoNome}">
               ${item.colecaoNome}
             </span>
           </div>
 
           <!-- Thumbnail com fundo xadrez suave -->
-          <div onclick="openModal(${globalIndex})" class="w-full aspect-square rounded-lg pattern-checkered p-2.5 flex items-center justify-center cursor-pointer overflow-hidden group-hover:scale-[1.02] transition">
+          <div onclick="openModal(${globalIndex})" class="w-full aspect-square rounded-xl pattern-checkered p-2.5 flex items-center justify-center cursor-pointer overflow-hidden group-hover:scale-[1.02] transition border border-kc-border/60">
             <img src="${item.thumb}" alt="${item.titulo}" loading="lazy" class="w-full h-full object-contain filter drop-shadow">
           </div>
 
-          <!-- Titulo -->
-          <div class="space-y-1">
-            <h4 class="text-xs font-semibold text-white line-clamp-1 group-hover:text-cyan-400 transition" title="${item.titulo}">
+          <!-- Titulo & Dimensões -->
+          <div class="space-y-0.5">
+            <h4 class="text-xs font-bold text-kc-white line-clamp-1 group-hover:text-kc-lime transition" title="${item.titulo}">
               ${item.titulo}
             </h4>
-            <p class="text-[10px] text-slate-500 font-mono">
+            <p class="text-[10px] text-kc-muted font-mono">
               ${item.enhW} × ${item.enhH} px
             </p>
           </div>
 
           <!-- Ações -->
           <div class="pt-1 flex items-center gap-1.5">
-            <button onclick="openModal(${globalIndex})" class="flex-1 py-1.5 px-2 bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 rounded-lg text-[11px] font-medium text-slate-200 transition flex items-center justify-center gap-1.5 shadow-sm">
+            <button onclick="openModal(${globalIndex})" class="flex-1 py-1.5 px-2 bg-kc-charcoal hover:bg-kc-lime hover:text-kc-void rounded-full text-[11px] font-bold text-kc-white border border-kc-border hover:border-kc-lime transition flex items-center justify-center gap-1.5 shadow-sm">
               <i class="fa-solid fa-sliders text-[10px]"></i> Comparar
             </button>
-            <a href="${getAssetUrl(item.after)}" download="${item.id}_enhanced_8k.png" class="p-1.5 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-300 transition text-[11px]" title="Baixar 8K Transparente">
+            <a href="${getAssetUrl(item.after)}" download="${item.id}_enhanced_8k.png" class="p-1.5 rounded-full bg-kc-charcoal hover:bg-kc-lime hover:text-kc-void text-kc-subtext border border-kc-border hover:border-kc-lime transition text-[11px] flex items-center justify-center w-7 h-7" title="Baixar 8K Transparente">
               <i class="fa-solid fa-download"></i>
             </a>
           </div>
@@ -368,11 +536,11 @@
     function filterCollection(col) {
       currentFilter = col;
       document.querySelectorAll('.category-pill').forEach(btn => {
-        btn.className = 'category-pill px-3 py-1.5 rounded-xl font-medium bg-slate-900 text-slate-300 hover:bg-slate-850 hover:text-white border border-slate-800 transition whitespace-nowrap';
+        btn.className = 'category-pill px-3.5 py-1.5 rounded-full font-medium bg-kc-grafite text-kc-subtext hover:bg-kc-charcoal hover:text-kc-white border border-kc-border transition whitespace-nowrap';
       });
       const activeBtn = document.getElementById('tab-' + col);
       if (activeBtn) {
-        activeBtn.className = 'category-pill active px-3 py-1.5 rounded-xl font-semibold bg-cyan-500 text-slate-950 transition whitespace-nowrap';
+        activeBtn.className = 'category-pill active px-3.5 py-1.5 rounded-full font-bold bg-kc-lime text-kc-void transition whitespace-nowrap shadow-sm';
       }
       renderGrid();
     }
@@ -435,28 +603,28 @@
       openModal(newIndex);
     }
 
-    // Background Mode
+    // Background Mode (Transparente Xadrez / Escuro / Branco)
     function setBgMode(mode) {
       const box = document.getElementById('modal-split-box');
-      box.classList.remove('pattern-checkered', 'pattern-checkered-light', 'bg-slate-950', 'bg-white');
+      box.classList.remove('pattern-checkered', 'pattern-checkered-light', 'bg-kc-void', 'bg-white');
 
       ['checkered', 'dark', 'white'].forEach(m => {
-        document.getElementById('bg-' + m).className = 'px-2 py-1 rounded text-slate-400 hover:text-white transition';
+        document.getElementById('bg-' + m).className = 'px-2.5 py-1 rounded-full text-kc-muted hover:text-kc-white transition';
       });
 
       if (mode === 'checkered') {
         box.classList.add('pattern-checkered');
-        document.getElementById('bg-checkered').className = 'px-2 py-1 rounded bg-slate-800 text-white transition';
+        document.getElementById('bg-checkered').className = 'px-2.5 py-1 rounded-full bg-kc-charcoal text-kc-lime font-medium transition';
       } else if (mode === 'dark') {
-        box.classList.add('bg-slate-950');
-        document.getElementById('bg-dark').className = 'px-2 py-1 rounded bg-slate-800 text-white transition';
+        box.classList.add('bg-kc-void');
+        document.getElementById('bg-dark').className = 'px-2.5 py-1 rounded-full bg-kc-charcoal text-kc-lime font-medium transition';
       } else if (mode === 'white') {
         box.classList.add('bg-white');
-        document.getElementById('bg-white').className = 'px-2 py-1 rounded bg-slate-800 text-white transition';
+        document.getElementById('bg-white').className = 'px-2.5 py-1 rounded-full bg-slate-200 text-slate-900 font-bold transition';
       }
     }
 
-    // Slider Drag Logic
+    // Slider Drag Logic com Clip-Path Responsivo
     const modalBox = document.getElementById('modal-split-box');
     const splitLine = document.getElementById('modal-split-line');
     const imgBefore = document.getElementById('modal-img-before');
@@ -486,7 +654,7 @@
       updateSlider(e.clientX);
     });
 
-    // Touch support
+    // Suporte a Touch
     modalBox.addEventListener('touchstart', (e) => {
       isDragging = true;
       updateSlider(e.touches[0].clientX);
@@ -497,7 +665,7 @@
       updateSlider(e.touches[0].clientX);
     });
 
-    // Keyboard navigation
+    // Navegação por teclado
     window.addEventListener('keydown', (e) => {
       if (modalEl.classList.contains('hidden')) return;
       if (e.key === 'Escape') closeModal();
@@ -505,12 +673,8 @@
       else if (e.key === 'ArrowRight') navigateModal(1);
     });
 
-    // Close on click outside modal content
+    // Fechar ao clicar fora
     modalEl.addEventListener('click', closeModal);
-
-    function downloadAllInfo() {
-      window.open('https://github.com/KeyCoreSH/stickers-keycore/archive/refs/heads/main.zip', '_blank');
-    }
 
     // Inicialização
     renderGrid();
